@@ -8,9 +8,17 @@ navigator.mediaDevices.getUserMedia({ video: true })
     });
 
 captureButton.addEventListener('click', () => {
-    // Add face recognition logic here
-    statusMessage.textContent = '✔️ Face Matched';
-    setTimeout(() => {
-        window.location.href = 'success.html';
-    }, 2000);
+    const faceMatched = Math.random() > 0.5; // Simulated face match (Replace with actual API)
+    
+    if (faceMatched) {
+        statusMessage.textContent = '✔️ Face Matched';
+        setTimeout(() => {
+            window.location.href = 'success.html';
+        }, 2000);
+    } else {
+        statusMessage.textContent = '❌ Face Not Recognized';
+        setTimeout(() => {
+            window.location.href = 'denied.html';
+        }, 2000);
+    }
 });
