@@ -1,59 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SafeCampus - Emergency Alert</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Ensure this path is correct -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeriSafe – Campus Safety</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Times New Roman', serif; /* Changed to Times New Roman */
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #160674, #b1b6d2);
+            min-height: 100vh;
+            color: #000000;
+        }
+        h1, h2 {
+            font-family: 'Times New Roman', serif; /* Changed to Times New Roman */
+            font-weight: bold; /* Added bold for better visibility */
+            text-align: center;
+        }
+        h1 {
+            font-size: 4rem; /* Increased size of "VeriSafe" */
+            margin: 20px 0; /* Added margin for better spacing */
+        }
+        nav {
+            background-color: #000000;
+            overflow: hidden;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            padding: 14px 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        nav ul li:hover {
+            background-color: #575757;
+        }
+        #home {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .description-box {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        #contact {
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="emergency-alert.html">🚨 Emergency Alert</a></li>
-      <li><a href="live-location.html">Live Location Sharing 🗺</a></li>
-      <li><a href="emergency-contacts.html">Emergency Contacts 📞</a></li>
-      <li><a href="spam-checker.html">Link & File Spam Checker 🔗📁</a></li>
-    </ul>
-  </nav>
-
-  <!-- Emergency Alert Content -->
-  <section id="emergencyAlert">
-    <h2>🚨 Emergency Alert</h2>
-    <p>In case of an emergency, click the button below to trigger an alert.</p>
-    
-    <!-- Emergency Alert Button -->
-    <button id="emergencyBtn">Trigger Emergency Alert</button>
-
-    <!-- Custom Message Input -->
-    <div id="customMessage">
-      <label for="message">Add a custom message (optional):</label>
-      <textarea id="message" placeholder="e.g., I need help at the library"></textarea>
-    </div>
-
-    <!-- Countdown Timer -->
-    <div id="countdownTimer">
-      <p>Alert will be sent in: <span id="timer">10</span> seconds</p>
-      <button id="cancelBtn">Cancel Alert</button>
-    </div>
-
-    <!-- Fake Call Button -->
-    <button id="fakeCallBtn">📞 Simulate Fake Call</button>
-
-    <!-- Alert Status -->
-    <div id="alertStatus"></div>
-
-    <!-- Sent Alerts Section -->
-    <div id="sentAlerts">
-      <h3>Sent Alerts</h3>
-      <ul id="alertList"></ul>
-    </div>
-  </section>
-
-  <!-- Alarm Sound -->
-  <audio id="alarmSound" src="alarm.mp3"></audio> <!-- Ensure this file exists -->
-
-  <script src="script.js"></script> <!-- Ensure this path is correct -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="emergency-alert.html">Emergency Alert Button</a></li>
+            <li><a href="live-location.html">Live Location Sharing</a></li>
+            <li><a href="emergency-contacts.html">Emergency Contacts</a></li>
+            <li><a href="spam-checker.html">Link & File Spam Checker</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+    <section id="home">
+        <h1>VeriSafe</h1>
+        <div class="description-box">
+            <p>VeriSafe is an all-in-one campus safety and security website designed to provide essential safety features using only frontend technologies. It includes an Emergency Alert Button for instant location sharing, Live Location Sharing for real-time tracking, a list of Emergency Contacts for quick access to help, and a Link & File Spam Checker to detect suspicious content. Built entirely with JavaScript, SafeCampus is a lightweight, user-friendly tool to enhance safety for students and faculty on campus.</p>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: support@verisafe.com</p>
+        <p>Phone: +123 456 7890</p>
+        <p>Address: 123 Campus Safety St, Secure City</p>
+    </section>
 </body>
 </html>
