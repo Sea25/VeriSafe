@@ -1,106 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VeriSafe – Campus Safety</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: 'Times New Roman', serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #160674, #b1b6d2);
-            min-height: 100vh;
-            color: #000000;
-        }
-        h1, h2 {
-            font-family: 'Times New Roman', serif;
-            font-weight: bold;
-            text-align: center;
-        }
-        h1 {
-            font-size: 4rem;
-            margin: 20px 0;
-            animation: fadeInSlide 2s ease-out; /* Animation for heading */
-        }
-        nav {
-            background-color: #000000;
-            overflow: hidden;
-        }
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-        nav ul li {
-            padding: 14px 20px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            display: block;
-        }
-        nav ul li:hover {
-            background-color: #575757;
-        }
-        #home {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .description-box {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            max-width: 800px;
-            margin: 20px auto;
-            text-align: center;
-            animation: fadeIn 2s ease-in-out; /* Animation for description */
-        }
-        #contact {
-            padding: 20px;
-            text-align: center;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VeriSafe - Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Times New Roman', serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #3e17db, #24185f);
+      min-height: 100vh;
+      color: white;
+    }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+    h1, h2, h3 {
+      font-family: 'Times New Roman', serif;
+      font-weight: bold;
+      text-align: center;
+    }
 
-        @keyframes fadeInSlide {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    /* Navigation Bar Styles */
+    nav {
+      background-color: #000000;
+      overflow: hidden;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    }
+
+    nav ul li {
+      padding: 14px 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      display: block;
+    }
+
+    nav ul li:hover {
+      background-color: #575757;
+    }
+
+    /* Hero Section */
+    #hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 80vh;
+      background: linear-gradient(135deg, rgba(102, 133, 179, 0.8), rgba(4, 30, 67, 0.8)), url('campus.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 20px;
+    }
+
+    #hero h1 {
+      font-size: 4rem;
+      margin: 0;
+      animation: fadeInDown 1.5s ease-out;
+    }
+
+    #hero p {
+      font-size: 1.5rem;
+      margin: 20px 0;
+      animation: fadeInUp 1.5s ease-out;
+    }
+
+    #hero button {
+      background-color: #ff4444;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      animation: fadeIn 2s ease-out;
+    }
+
+    #hero button:hover {
+      background-color: #cc0000;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      /* Navigation Bar Adjustments for Mobile */
+      nav ul {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+      }
+
+      nav ul li {
+        padding: 10px 0; /* Reduce padding for smaller screens */
+      }
+
+      /* Hero Section Adjustments for Mobile */
+      #hero h1 {
+        font-size: 2.5rem; /* Smaller font size for mobile */
+      }
+
+      #hero p {
+        font-size: 1.2rem; /* Smaller font size for mobile */
+      }
+
+      #hero button {
+        padding: 10px 20px; /* Smaller button for mobile */
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Further Adjustments for Very Small Screens */
+      #hero h1 {
+        font-size: 2rem; /* Even smaller font size */
+      }
+
+      #hero p {
+        font-size: 1rem; /* Even smaller font size */
+      }
+
+      #hero button {
+        padding: 8px 16px; /* Smaller button */
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="emergency-alert.html">Emergency Alert Button</a></li>
-            <li><a href="live-location.html">Live Location Sharing</a></li>
-            <li><a href="emergency-contacts.html">Emergency Contacts</a></li>
-            <li><a href="spam-checker.html">Link & File Spam Checker</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-        </ul>
-    </nav>
-    <section id="home">
-        <h1>VeriSafe</h1>
-        <div class="description-box">
-            <p>VeriSafe is an all-in-one campus safety and security website designed to provide essential safety features using only frontend technologies. It includes an Emergency Alert Button for instant location sharing, Live Location Sharing for real-time tracking, a list of Emergency Contacts for quick access to help, and a Link & File Spam Checker to detect suspicious content. Built entirely with JavaScript, SafeCampus is a lightweight, user-friendly tool to enhance safety for students and faculty on campus.</p>
-        </div>
-    </section>
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Email: support@verisafe.com</p>
-        <p>Phone: +123 456 7890</p>
-        <p>Address: 123 Campus Safety St, Secure City</p>
-    </section>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="emergency-alert.html">🚨 Siren Sync</a></li>
+      <li><a href="live-location.html">Track Me 🗺</a></li>
+      <li><a href="emergency-contacts.html">ResQConnect 📞</a></li>
+      <li><a href="spam-checker.html">Spam Guard 🔗📁</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <h1>Welcome to VeriSafe</h1>
+    <p>Your all-in-one solution for campus safety. Featuring emergency alerts, live location sharing, emergency contacts, and spam detection. Stay safe, stay secure.</p>
+    <button onclick="location.href='emergency-alert.html'">Get Started</button>
+  </section>
 </body>
 </html>

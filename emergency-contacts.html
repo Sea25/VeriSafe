@@ -5,6 +5,129 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SafeCampus - Emergency Contacts</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Times New Roman', serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      min-height: 100vh;
+      color: #000000;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Times New Roman', serif;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 3.5rem;
+      margin: 20px 0;
+      background: linear-gradient(135deg, #007bff, #0056b3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Navigation Bar Styles */
+    nav {
+      background-color: #000000;
+      overflow: hidden;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      padding: 14px 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      display: block;
+    }
+
+    nav ul li:hover {
+      background-color: #575757;
+    }
+
+    /* Emergency Contacts Content Styles */
+    #emergencyContacts {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .category {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin: 20px auto;
+      max-width: 800px;
+      overflow: hidden;
+    }
+
+    .category-header {
+      padding: 15px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      background: rgba(173, 216, 230, 0.8); /* Pastel blue */
+      color: #000000; /* Black text */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s ease;
+    }
+
+    .category-header:hover {
+      background: rgba(173, 216, 230, 1); /* Slightly darker on hover */
+    }
+
+    .category-content {
+      padding: 0 15px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .contact-item {
+      margin: 15px 0;
+      padding: 10px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-item strong {
+      display: block;
+      font-size: 1.1rem;
+      color: #333; /* Dark gray for text */
+    }
+
+    .contact-item a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* Unique colors for each contact */
+    .contact-item:nth-child(1) { background: rgba(255, 182, 193, 0.9); } /* Pastel pink */
+    .contact-item:nth-child(2) { background: rgba(173, 216, 230, 0.9); } /* Pastel blue */
+    .contact-item:nth-child(3) { background: rgba(144, 238, 144, 0.9); } /* Pastel green */
+    .contact-item:nth-child(4) { background: rgba(255, 218, 185, 0.9); } /* Pastel peach */
+    .contact-item:nth-child(5) { background: rgba(221, 160, 221, 0.9); } /* Pastel purple */
+  </style>
 </head>
 <body>
   <!-- Navigation Bar -->
@@ -21,33 +144,138 @@
   <!-- Emergency Contacts Content -->
   <section id="emergencyContacts">
     <h2>Emergency Contacts 📞</h2>
-    <div class="contacts-list">
-      <div class="contact-card">
-        <h3>🚓 Campus Security</h3>
-        <p><strong>Phone:</strong> <a href="tel:123-456-7890">123-456-7890</a></p>
-        <p><strong>Email:</strong> <a href="mailto:security@campus.edu">security@campus.edu</a></p>
+
+    <!-- General Emergency Services -->
+    <div class="category">
+      <div class="category-header" onclick="toggleCategory('general')">
+        🚨 General Emergency Services
+        <span>▼</span>
       </div>
-      <div class="contact-card">
-        <h3>🚨 Police</h3>
-        <p><strong>Phone:</strong> <a href="tel:911">911</a></p>
-        <p><strong>Non-Emergency:</strong> <a href="tel:101">101</a></p>
+      <div class="category-content" id="general">
+        <div class="contact-item">
+          <strong>112</strong>
+          <p>All-in-One Emergency Helpline (Police, Fire, Medical)</p>
+        </div>
+        <div class="contact-item">
+          <strong>100</strong>
+          <p>Police Control Room</p>
+        </div>
+        <div class="contact-item">
+          <strong>101</strong>
+          <p>Fire & Rescue Services</p>
+        </div>
+        <div class="contact-item">
+          <strong>102</strong>
+          <p>Government Ambulance Service</p>
+        </div>
+        <div class="contact-item">
+          <strong>108</strong>
+          <p>Kerala Emergency Medical Ambulance (Free Service)</p>
+        </div>
       </div>
-      <div class="contact-card">
-        <h3>🚑 Ambulance</h3>
-        <p><strong>Phone:</strong> <a href="tel:112">112</a></p>
-        <p><strong>Non-Emergency:</strong> <a href="tel:102">102</a></p>
+    </div>
+
+    <!-- Medical & Health Helplines -->
+    <div class="category">
+      <div class="category-header" onclick="toggleCategory('medical')">
+        🏥 Medical & Health Helplines
+        <span>▼</span>
       </div>
-      <div class="contact-card">
-        <h3>🚒 Fire Department</h3>
-        <p><strong>Phone:</strong> <a href="tel:911">911</a></p>
-        <p><strong>Non-Emergency:</strong> <a href="tel:103">103</a></p>
+      <div class="category-content" id="medical">
+        <div class="contact-item">
+          <strong>104</strong>
+          <p>Health Helpline (24x7)</p>
+        </div>
+        <div class="contact-item">
+          <strong>1099</strong>
+          <p>Blood Bank Helpline</p>
+        </div>
+        <div class="contact-item">
+          <strong>1056</strong>
+          <p>Disaster Management Helpline</p>
+        </div>
+        <div class="contact-item">
+          <strong>0471-2552056</strong>
+          <p>Kerala State Mental Health Helpline</p>
+        </div>
+        <div class="contact-item">
+          <strong>1098</strong>
+          <p>Child Helpline (For children in distress)</p>
+        </div>
       </div>
-      <div class="contact-card">
-        <h3>🚨 Women's Helpline</h3>
-        <p><strong>Phone:</strong> <a href="tel:1091">1091</a></p>
-        <p><strong>Email:</strong> <a href="mailto:womensafety@campus.edu">womensafety@campus.edu</a></p>
+    </div>
+
+    <!-- Women’s Safety & Support -->
+    <div class="category">
+      <div class="category-header" onclick="toggleCategory('women')">
+        🚺 Women’s Safety & Support
+        <span>▼</span>
+      </div>
+      <div class="category-content" id="women">
+        <div class="contact-item">
+          <strong>1091</strong>
+          <p>Women’s Helpline (Police Assistance)</p>
+        </div>
+        <div class="contact-item">
+          <strong>181</strong>
+          <p>Women’s Domestic Violence Helpline</p>
+        </div>
+        <div class="contact-item">
+          <strong>0484-2396760</strong>
+          <p>Kerala Women's Commission Helpline</p>
+        </div>
+        <div class="contact-item">
+          <strong>9995399953</strong>
+          <p>Pink Police Patrol (Women’s Safety Squad)</p>
+        </div>
+        <div class="contact-item">
+          <strong>9876543210</strong>
+          <p>Snehitha Women’s Helpdesk (Kudumbashree Initiative)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Road & Traffic Emergencies -->
+    <div class="category">
+      <div class="category-header" onclick="toggleCategory('road')">
+        🚗 Road & Traffic Emergencies
+        <span>▼</span>
+      </div>
+      <div class="category-content" id="road">
+        <div class="contact-item">
+          <strong>1099</strong>
+          <p>Road Accident Helpline</p>
+        </div>
+        <div class="contact-item">
+          <strong>1033</strong>
+          <p>National Highway Helpline</p>
+        </div>
+        <div class="contact-item">
+          <strong>1093</strong>
+          <p>Railway Emergency Helpline</p>
+        </div>
+        <div class="contact-item">
+          <strong>1073</strong>
+          <p>Traffic Police Helpline</p>
+        </div>
+        <div class="contact-item">
+          <strong>0471-2339101</strong>
+          <p>Kerala State Road Transport Corporation (KSRTC) Helpline</p>
+        </div>
       </div>
     </div>
   </section>
+
+  <script>
+    // Function to toggle category visibility
+    function toggleCategory(id) {
+      const content = document.getElementById(id);
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null; // Collapse
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px"; // Expand
+      }
+    }
+  </script>
 </body>
 </html>
