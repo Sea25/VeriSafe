@@ -1,63 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emergency Alert</title>
-    <style>
-        nav {
-            background-color: #000000;
-            overflow: hidden;
-        }
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-        nav ul li {
-            padding: 14px 20px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            display: block;
-        }
-        nav ul li:hover {
-            background-color: #575757;
-        }
-    </style>
-    <script>
-        function triggerAlert() {
-            alert("🚨 Emergency Alert Activated! 🚨\nYour location is being shared.");
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showLocation);
-            } else {
-                alert("Geolocation is not supported by this browser.");
-            }
-        }
-
-        function showLocation(position) {
-            alert(`Latitude: ${position.coords.latitude}\nLongitude: ${position.coords.longitude}`);
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeCampus - Emergency Alert</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="emergency-alert.html">Emergency Alert Button</a></li>
-            <li><a href="live-location.html">Live Location Sharing</a></li>
-            <li><a href="emergency-contacts.html">Emergency Contacts</a></li>
-            <li><a href="spam-checker.html">Link & File Spam Checker</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-    </nav>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="emergency-alert.html">🚨 Emergency Alert</a></li>
+      <li><a href="live-location.html">Live Location Sharing 🗺</a></li>
+      <li><a href="emergency-contacts.html">Emergency Contacts 📞</a></li>
+      <li><a href="spam-checker.html">Link & File Spam Checker 🔗📁</a></li>
+    </ul>
+  </nav>
 
-    <!-- Emergency Alert Page -->
-    <h1>Emergency Alert</h1>
-    <p>Click the button to trigger an emergency alert and share your location.</p>
-    <button onclick="triggerAlert()">🚨 Emergency Alert</button>
+  <!-- Emergency Alert Content -->
+  <section id="emergencyAlert">
+    <h2>🚨 Emergency Alert</h2>
+    <p>In case of an emergency, click the button below to trigger an alert.</p>
+    
+    <!-- Emergency Alert Button -->
+    <button id="emergencyBtn">Trigger Emergency Alert</button>
+
+    <!-- Custom Message Input -->
+    <div id="customMessage">
+      <label for="message">Add a custom message (optional):</label>
+      <textarea id="message" placeholder="e.g., I need help at the library"></textarea>
+    </div>
+
+    <!-- Countdown Timer -->
+    <div id="countdownTimer">
+      <p>Alert will be sent in: <span id="timer">10</span> seconds</p>
+      <button id="cancelBtn">Cancel Alert</button>
+    </div>
+
+    <!-- Fake Call Button -->
+    <button id="fakeCallBtn">📞 Simulate Fake Call</button>
+
+    <!-- Alert Status -->
+    <div id="alertStatus"></div>
+  </section>
+
+  <!-- Alarm Sound -->
+  <audio id="alarmSound" src="alarm.mp3"></audio>
+
+  <script src="script.js"></script>
 </body>
 </html>

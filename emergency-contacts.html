@@ -1,71 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emergency Contacts</title>
-    <style>
-        nav {
-            background-color: #000000;
-            overflow: hidden;
-        }
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-        nav ul li {
-            padding: 14px 20px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            display: block;
-        }
-        nav ul li:hover {
-            background-color: #575757;
-        }
-        .contact-list {
-            margin-top: 20px;
-        }
-        .contact-item {
-            font-size: 18px;
-            margin: 10px 0;
-        }
-        .contact-item a {
-            text-decoration: none;
-            color: #007bff;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeCampus - Emergency Contacts</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="emergency-alert.html">Emergency Alert Button</a></li>
-            <li><a href="live-location.html">Live Location Sharing</a></li>
-            <li><a href="emergency-contacts.html">Emergency Contacts</a></li>
-            <li><a href="spam-checker.html">Link & File Spam Checker</a></li>
-            <li><a href="index.html#contact">Contact Us</a></li>
-        </ul>
-    </nav>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="emergency-alert.html">🚨 Emergency Alert</a></li>
+      <li><a href="live-location.html">Live Location Sharing 🗺</a></li>
+      <li><a href="emergency-contacts.html">Emergency Contacts 📞</a></li>
+      <li><a href="spam-checker.html">Link & File Spam Checker 🔗📁</a></li>
+    </ul>
+  </nav>
 
-    <!-- Emergency Contacts Page -->
-    <h1>Emergency Contacts</h1>
-    <p>Click a contact below to call directly.</p>
-
-    <div class="contact-list">
-        <div class="contact-item">
-            📞 <strong>Campus Security:</strong> <a href="tel:+1234567890">+123 456 7890</a>
-        </div>
-        <div class="contact-item">
-            🚓 <strong>Police:</strong> <a href="tel:911">911</a>
-        </div>
-        <div class="contact-item">
-            🚑 <strong>Medical Help:</strong> <a href="tel:+1987654321">+198 765 4321</a>
-        </div>
+  <!-- Emergency Contacts Content -->
+  <section id="emergencyContacts">
+    <h2>Emergency Contacts 📞</h2>
+    <div class="contacts-list">
+      <div class="contact-card">
+        <h3>🚓 Campus Security</h3>
+        <p><strong>Phone:</strong> <a href="tel:123-456-7890">123-456-7890</a></p>
+        <p><strong>Email:</strong> <a href="mailto:security@campus.edu">security@campus.edu</a></p>
+      </div>
+      <div class="contact-card">
+        <h3>🚨 Police</h3>
+        <p><strong>Phone:</strong> <a href="tel:911">911</a></p>
+        <p><strong>Non-Emergency:</strong> <a href="tel:101">101</a></p>
+      </div>
+      <div class="contact-card">
+        <h3>🚑 Ambulance</h3>
+        <p><strong>Phone:</strong> <a href="tel:112">112</a></p>
+        <p><strong>Non-Emergency:</strong> <a href="tel:102">102</a></p>
+      </div>
+      <div class="contact-card">
+        <h3>🚒 Fire Department</h3>
+        <p><strong>Phone:</strong> <a href="tel:911">911</a></p>
+        <p><strong>Non-Emergency:</strong> <a href="tel:103">103</a></p>
+      </div>
+      <div class="contact-card">
+        <h3>🚨 Women's Helpline</h3>
+        <p><strong>Phone:</strong> <a href="tel:1091">1091</a></p>
+        <p><strong>Email:</strong> <a href="mailto:womensafety@campus.edu">womensafety@campus.edu</a></p>
+      </div>
     </div>
+  </section>
 </body>
 </html>

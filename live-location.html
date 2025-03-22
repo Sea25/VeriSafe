@@ -1,77 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Location Sharing</title>
-    <style>
-        nav {
-            background-color: #000000;
-            overflow: hidden;
-        }
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-        nav ul li {
-            padding: 14px 20px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            display: block;
-        }
-        nav ul li:hover {
-            background-color: #575757;
-        }
-        #map {
-            width: 100%;
-            height: 400px;
-            margin-top: 20px;
-        }
-    </style>
-    <script>
-        function showLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(displayMap, showError);
-            } else {
-                alert("Geolocation is not supported by this browser.");
-            }
-        }
-
-        function displayMap(position) {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
-            const mapFrame = `<iframe width="100%" height="400" 
-                src="https://www.google.com/maps?q=${latitude},${longitude}&output=embed">
-                </iframe>`;
-            document.getElementById("map").innerHTML = mapFrame;
-        }
-
-        function showError(error) {
-            alert("Unable to retrieve location. Please enable location services.");
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeCampus - Live Location Sharing</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="emergency-alert.html">Emergency Alert Button</a></li>
-            <li><a href="live-location.html">Live Location Sharing</a></li>
-            <li><a href="emergency-contacts.html">Emergency Contacts</a></li>
-            <li><a href="spam-checker.html">Link & File Spam Checker</a></li>
-            <li><a href="index.html#contact">Contact Us</a></li>
-        </ul>
-    </nav>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="emergency-alert.html">🚨 Emergency Alert</a></li>
+      <li><a href="live-location.html">Live Location Sharing 🗺</a></li>
+      <li><a href="emergency-contacts.html">Emergency Contacts 📞</a></li>
+      <li><a href="spam-checker.html">Link & File Spam Checker 🔗📁</a></li>
+    </ul>
+  </nav>
 
-    <!-- Live Location Page -->
-    <h1>Live Location Sharing</h1>
-    <p>Click the button below to share your live location.</p>
-    <button onclick="showLocation()">📍 Share Live Location</button>
+  <!-- Live Location Sharing Content -->
+  <section id="liveLocation">
+    <h2>Live Location Sharing 🗺</h2>
     <div id="map"></div>
+  </section>
+
+  <script src="script.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
 </body>
 </html>
