@@ -149,3 +149,43 @@ body {
     0%, 100% { background-color: white; }
     50% { background-color: red; }
   }
+  /* Contact Cards Styles */
+.contacts-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .contact-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .contact-card h3 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .contact-card p {
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  .contact-card a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .contact-card a:hover {
+    text-decoration: underline;
+  }
