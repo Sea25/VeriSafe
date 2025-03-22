@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link & File Spam Checker</title>
+    <style>
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            padding: 14px 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        nav ul li:hover {
+            background-color: #575757;
+        }
+        .container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="emergency-alert.html">Emergency Alert Button</a></li>
+            <li><a href="live-location.html">Live Location Sharing</a></li>
+            <li><a href="emergency-contacts.html">Emergency Contacts</a></li>
+            <li><a href="spam-checker.html">Link & File Spam Checker</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Spam Checker Page -->
+    <h1>Link & File Spam Checker</h1>
+
+    <div class="container">
+        <h2>Check Suspicious Links</h2>
+        <input type="text" id="linkInput" placeholder="Enter a link">
+        <button onclick="checkLink()">Check Link</button>
+        <p id="linkResult"></p>
+
+        <h2>Check File Extensions</h2>
+        <input type="file" id="fileInput">
+        <button onclick="checkFile()">Check File</button>
+        <p id="fileResult"></p>
+    </div>
+
+    <script>
+        function checkLink() {
+            const input = document.getElementById("linkInput").value.toLowerCase();
+            const suspiciousWords = ["free-money", "verify-account", "click-here", "win-prize"];
+            let isSuspicious = suspiciousWords.some(word => input.includes(word));
+
+            document.getElementById("linkResult").innerText = isSuspicious ? "⚠️ This link may be unsafe!" : "✅ This link looks safe.";
+        }
+
+        function checkFile() {
+            const file = document.getElementById("fileInput").files[0];
+            if (!file) {
+                document.getElementById("fileResult").innerText = "Please select a file.";
+                return;
+            }
+
+            const riskyExtensions = [".exe", ".js", ".scr", ".bat"];
+            let isRisky = riskyExtensions.some(ext => file.name.endsWith(ext));
+
+            document.getElementById("fileResult").innerText = isRisky ? "⚠️ This file may be unsafe!" : "✅ This file looks safe.";
+        }
+    </script>
+</body>
+</html>

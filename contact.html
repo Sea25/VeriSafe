@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VeriSafe – Campus Safety</title>
+    <title>Contact Us</title>
     <style>
         nav {
             background-color: #333;
@@ -27,6 +26,10 @@
         nav ul li:hover {
             background-color: #575757;
         }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
     </style>
 </head>
 <body>
@@ -38,22 +41,27 @@
             <li><a href="live-location.html">Live Location Sharing</a></li>
             <li><a href="emergency-contacts.html">Emergency Contacts</a></li>
             <li><a href="spam-checker.html">Link & File Spam Checker</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
         </ul>
     </nav>
 
-    <!-- Home Page -->
-    <section id="home">
-        <h1>Welcome to VeriSafe</h1>
-        <p>An all-in-one campus safety and security solution.</p>
-    </section>
-
-    <!-- Contact Us Section -->
-    <section id="contact">
-        <h2>Contact Us</h2>
+    <!-- Contact Us Page -->
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>If you have any questions or need assistance, feel free to reach out to us.</p>
+        
+        <h2>Contact Details</h2>
         <p>Email: support@verisafe.com</p>
         <p>Phone: +123 456 7890</p>
         <p>Address: 123 Campus Safety St, Secure City</p>
-    </section>
+
+        <h2>Send Us a Message</h2>
+        <form>
+            <input type="text" name="name" placeholder="Your Name" required><br><br>
+            <input type="email" name="email" placeholder="Your Email" required><br><br>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea><br><br>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
 </body>
 </html>
