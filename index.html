@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SafeCampus - Home</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>SafeCampus - Emergency Alert</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Ensure this path is correct -->
 </head>
 <body>
   <!-- Navigation Bar -->
@@ -18,12 +18,42 @@
     </ul>
   </nav>
 
-  <!-- Home Content -->
-  <section id="home">
-    <div class="home-content">
-      <h1>SafeCampus</h1>
-      <p>VeriSafe is an all-in-one campus safety and security website designed to provide essential safety features using only frontend technologies. It includes an Emergency Alert Button for instant location sharing, Live Location Sharing for real-time tracking, a list of Emergency Contacts for quick access to help, and a Link & File Spam Checker to detect.</p>
+  <!-- Emergency Alert Content -->
+  <section id="emergencyAlert">
+    <h2>🚨 Emergency Alert</h2>
+    <p>In case of an emergency, click the button below to trigger an alert.</p>
+    
+    <!-- Emergency Alert Button -->
+    <button id="emergencyBtn">Trigger Emergency Alert</button>
+
+    <!-- Custom Message Input -->
+    <div id="customMessage">
+      <label for="message">Add a custom message (optional):</label>
+      <textarea id="message" placeholder="e.g., I need help at the library"></textarea>
+    </div>
+
+    <!-- Countdown Timer -->
+    <div id="countdownTimer">
+      <p>Alert will be sent in: <span id="timer">10</span> seconds</p>
+      <button id="cancelBtn">Cancel Alert</button>
+    </div>
+
+    <!-- Fake Call Button -->
+    <button id="fakeCallBtn">📞 Simulate Fake Call</button>
+
+    <!-- Alert Status -->
+    <div id="alertStatus"></div>
+
+    <!-- Sent Alerts Section -->
+    <div id="sentAlerts">
+      <h3>Sent Alerts</h3>
+      <ul id="alertList"></ul>
     </div>
   </section>
+
+  <!-- Alarm Sound -->
+  <audio id="alarmSound" src="alarm.mp3"></audio> <!-- Ensure this file exists -->
+
+  <script src="script.js"></script> <!-- Ensure this path is correct -->
 </body>
 </html>

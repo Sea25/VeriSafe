@@ -1,15 +1,5 @@
-/* General Styles */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    height: 100vh; /* Full viewport height */
-  }
-  
-  /* Navigation Bar Styles */
-  nav {
+/* Navigation Bar Styles */
+nav {
     background-color: #333;
     padding: 10px 0;
   }
@@ -38,34 +28,8 @@ body {
     border-radius: 5px;
   }
   
-  /* Home Content Styles */
-  #home {
-    flex: 1; /* Takes up remaining space */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    box-sizing: border-box; /* Ensures padding is included in height calculation */
-  }
-  
-  .home-content {
-    max-width: 600px; /* Optional: Limit width for better readability */
-  }
-  
-  .home-content h1 {
-    font-size: 3rem;
-    margin: 0;
-    color: #333;
-  }
-  
-  .home-content p {
-    font-size: 1.5rem;
-    color: #555;
-    margin: 10px 0 0; /* Add some spacing between the title and description */
-  }
   /* Emergency Alert Page Styles */
-#emergencyAlert {
+  #emergencyAlert {
     text-align: center;
     padding: 20px;
   }
@@ -140,6 +104,35 @@ body {
     color: #333;
   }
   
+  /* Sent Alerts Section */
+  #sentAlerts {
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: left;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  #sentAlerts h3 {
+    margin-top: 0;
+  }
+  
+  #alertList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #alertList li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
   /* Flash Screen Effect */
   .flash {
     animation: flashScreen 1s infinite;
@@ -148,44 +141,4 @@ body {
   @keyframes flashScreen {
     0%, 100% { background-color: white; }
     50% { background-color: red; }
-  }
-  /* Contact Cards Styles */
-.contacts-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .contact-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  
-  .contact-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  .contact-card h3 {
-    margin-top: 0;
-    color: #333;
-  }
-  
-  .contact-card p {
-    margin: 10px 0;
-    color: #555;
-  }
-  
-  .contact-card a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .contact-card a:hover {
-    text-decoration: underline;
   }

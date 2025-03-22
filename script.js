@@ -6,6 +6,7 @@ const cancelBtn = document.getElementById('cancelBtn');
 const fakeCallBtn = document.getElementById('fakeCallBtn');
 const alarmSound = document.getElementById('alarmSound');
 const messageInput = document.getElementById('message');
+const alertList = document.getElementById('alertList');
 
 let countdown;
 let timer = 10;
@@ -58,6 +59,12 @@ function triggerAlert() {
     alertStatus.textContent = 'Emergency alert sent!';
   }
   alertStatus.style.color = 'green';
+
+  // Add alert to the "Sent Alerts" list
+  const alertItem = document.createElement('li');
+  const timestamp = new Date().toLocaleTimeString();
+  alertItem.textContent = `[${timestamp}] Alert sent${customMessage ? `: "${customMessage}"` : ''}`;
+  alertList.appendChild(alertItem);
 
   // Reset timer and hide countdown
   timer = 10;
