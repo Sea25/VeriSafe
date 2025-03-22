@@ -1,0 +1,1 @@
+VeriSafe is an AI-powered facial recognition security system designed to enhance campus safety by ensuring that only authorized students and staff can enter university premises. By leveraging face recognition technology, VeriSafe prevents unauthorized access and strengthens security measures within educational institutions.
