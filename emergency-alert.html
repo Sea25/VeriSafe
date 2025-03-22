@@ -5,6 +5,165 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SafeCampus - Emergency Alert</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Times New Roman', serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      min-height: 100vh;
+      color: #000000;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Times New Roman', serif;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 3.5rem; /* Increased font size */
+      margin: 20px 0;
+      background: linear-gradient(135deg, #ff4444, #cc0000); /* Gradient color */
+      -webkit-background-clip: text; /* Clip background to text */
+      -webkit-text-fill-color: transparent; /* Make text transparent */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow */
+    }
+
+    /* Navigation Bar Styles */
+    nav {
+      background-color: #000000;
+      overflow: hidden;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      padding: 14px 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      display: block;
+    }
+
+    nav ul li:hover {
+      background-color: #575757;
+    }
+
+    /* Emergency Alert Content Styles */
+    #emergencyAlert {
+      text-align: center;
+      padding: 20px;
+    }
+
+    #emergencyBtn {
+      background-color: #ff4444;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 20px 0;
+    }
+
+    #emergencyBtn:hover {
+      background-color: #cc0000;
+    }
+
+    #customMessage {
+      margin: 20px 0;
+    }
+
+    #customMessage textarea {
+      width: 80%;
+      max-width: 400px;
+      height: 100px;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    #countdownTimer {
+      margin: 20px 0;
+      font-size: 1.2rem;
+    }
+
+    #cancelBtn {
+      background-color: #555;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    #cancelBtn:hover {
+      background-color: #333;
+    }
+
+    #fakeCallBtn {
+      background-color: #007bff;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 20px 0;
+    }
+
+    #fakeCallBtn:hover {
+      background-color: #0056b3;
+    }
+
+    #alertStatus {
+      margin: 20px 0;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    /* Sent Alerts Section */
+    #sentAlerts {
+      margin: 20px auto;
+      max-width: 600px;
+      text-align: left;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #sentAlerts h3 {
+      margin-top: 0;
+    }
+
+    #alertList {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #alertList li {
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
 <body>
   <!-- Navigation Bar -->
@@ -28,7 +187,7 @@
 
     <!-- Custom Message Input -->
     <div id="customMessage">
-      <label for="message">Add a custom message (optional):</label>
+      
       <textarea id="message" placeholder="e.g., I need help at the library"></textarea>
     </div>
 
@@ -52,7 +211,7 @@
   </section>
 
   <!-- Alarm Sound -->
-  <audio id="alarmSound" src="alarm.mp3"></audio>
+  <audio id="alarmSound" src="../assets/alarm.wav"></audio>
 
   <script src="script.js"></script>
 </body>

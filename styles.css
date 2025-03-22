@@ -182,3 +182,52 @@ nav {
   .contact-card a:hover {
     text-decoration: underline;
   }
+  .description-box {
+    animation: fadeIn 2s ease-in-out 1s; /* 1s delay */
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+h1 {
+    animation: fadeInSlide 2s ease-out, bounce 1s infinite 2s; /* Combine animations */
+}
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.description-box {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+    overflow: auto; /* Add scroll if content overflows */
+    max-height: 80vh; /* Limit height to 80% of the viewport */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    padding-bottom: 30px; /* Add extra padding at the bottom */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .description-box {
+        font-size: 0.9rem;
+        padding: 15px;
+    }
+}
+h2 {
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 3.5rem; /* Increased font size */
+    margin: 20px 0;
+    background: linear-gradient(135deg, #ff4444, #cc0000); /* Gradient color */
+    -webkit-background-clip: text; /* Clip background to text */
+    -webkit-text-fill-color: transparent; /* Make text transparent */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow */
+}

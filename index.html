@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            font-family: 'Times New Roman', serif; /* Changed to Times New Roman */
+            font-family: 'Times New Roman', serif;
             margin: 0;
             padding: 0;
             background: linear-gradient(135deg, #160674, #b1b6d2);
@@ -15,13 +15,14 @@
             color: #000000;
         }
         h1, h2 {
-            font-family: 'Times New Roman', serif; /* Changed to Times New Roman */
-            font-weight: bold; /* Added bold for better visibility */
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
             text-align: center;
         }
         h1 {
-            font-size: 4rem; /* Increased size of "VeriSafe" */
-            margin: 20px 0; /* Added margin for better spacing */
+            font-size: 4rem;
+            margin: 20px 0;
+            animation: fadeInSlide 2s ease-out; /* Animation for heading */
         }
         nav {
             background-color: #000000;
@@ -59,10 +60,22 @@
             max-width: 800px;
             margin: 20px auto;
             text-align: center;
+            animation: fadeIn 2s ease-in-out; /* Animation for description */
         }
         #contact {
             padding: 20px;
             text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
