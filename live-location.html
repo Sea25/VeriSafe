@@ -5,6 +5,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SafeCampus - Live Location Sharing</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Times New Roman', serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      min-height: 100vh;
+      color: #000000;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Times New Roman', serif;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 3.5rem;
+      margin: 20px 0;
+      background: linear-gradient(135deg, #007bff, #0056b3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Navigation Bar Styles */
+    nav {
+      background-color: #000000;
+      overflow: hidden;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      padding: 14px 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      display: block;
+    }
+
+    nav ul li:hover {
+      background-color: #575757;
+    }
+
+    /* Live Location Sharing Content Styles */
+    #liveLocation {
+      text-align: center;
+      padding: 20px;
+    }
+
+    #map {
+      height: 400px;
+      width: 90%;
+      max-width: 800px;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    #shareLocationBtn {
+      background-color: #007bff;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 20px 0;
+    }
+
+    #shareLocationBtn:hover {
+      background-color: #0056b3;
+    }
+
+    #locationStatus {
+      margin: 20px 0;
+      font-size: 1.2rem;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
   <!-- Navigation Bar -->
@@ -21,10 +112,76 @@
   <!-- Live Location Sharing Content -->
   <section id="liveLocation">
     <h2>Live Location Sharing 🗺</h2>
+    <p>Click the button below to share your live location.</p>
+    
+    <!-- Map Container -->
     <div id="map"></div>
+
+    <!-- Share Location Button -->
+    <button id="shareLocationBtn">Share My Location</button>
+
+    <!-- Location Status -->
+    <div id="locationStatus"></div>
   </section>
 
-  <script src="script.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+  <!-- Leaflet.js -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script>
+    // Initialize Map
+    const map = L.map('map').setView([0, 0], 15); // Default center
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Function to reverse geocode coordinates
+    async function reverseGeocode(latitude, longitude) {
+      const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data.display_name || 'Unknown location';
+      } catch (error) {
+        console.error('Error fetching location name:', error);
+        return 'Unknown location';
+      }
+    }
+
+    // Share Location Button
+    const shareLocationBtn = document.getElementById('shareLocationBtn');
+    const locationStatus = document.getElementById('locationStatus');
+
+    shareLocationBtn.addEventListener('click', async () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          async (position) => {
+            const { latitude, longitude } = position.coords;
+            map.setView([latitude, longitude], 15); // Center map on user's location
+
+            // Add marker with popup
+            const marker = L.marker([latitude, longitude]).addTo(map);
+            const locationName = await reverseGeocode(latitude, longitude);
+            marker.bindPopup(`You are here!<br>${locationName}`).openPopup();
+
+            // Update location status
+            locationStatus.innerHTML = `
+              Location shared!<br>
+              Latitude: ${latitude}, Longitude: ${longitude}<br>
+              Place: ${locationName}
+            `;
+            locationStatus.style.color = 'green';
+          },
+          (error) => {
+            locationStatus.textContent = 'Unable to retrieve your location.';
+            locationStatus.style.color = 'red';
+          }
+        );
+      } else {
+        locationStatus.textContent = 'Geolocation is not supported by your browser.';
+        locationStatus.style.color = 'red';
+      }
+    });
+  </script>
 </body>
 </html>

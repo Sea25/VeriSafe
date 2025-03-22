@@ -3,8 +3,106 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SafeCampus - Spam Checker</title>
+  <title>SafeCampus - Link & File Spam Checker</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Times New Roman', serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      min-height: 100vh;
+      color: #000000;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Times New Roman', serif;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 3.5rem;
+      margin: 20px 0;
+      background: linear-gradient(135deg, #007bff, #0056b3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Navigation Bar Styles */
+    nav {
+      background-color: #000000;
+      overflow: hidden;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      padding: 14px 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      display: block;
+    }
+
+    nav ul li:hover {
+      background-color: #575757;
+    }
+
+    /* Spam Checker Content Styles */
+    #spamChecker {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .checker-section {
+      margin: 20px auto;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    input[type="text"], input[type="file"] {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px 0;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #linkResult, #fileResult {
+      margin: 20px 0;
+      font-size: 1.2rem;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
   <!-- Navigation Bar -->
@@ -21,14 +119,81 @@
   <!-- Spam Checker Content -->
   <section id="spamChecker">
     <h2>Link & File Spam Checker 🔗📁</h2>
-    <input type="text" id="linkInput" placeholder="Paste a link">
-    <button onclick="checkLink()">Check Link</button>
-    <br>
-    <input type="file" id="fileInput">
-    <button onclick="checkFile()">Check File</button>
-    <p id="warningMessage"></p>
+    
+    <!-- Link Checker Section -->
+    <div class="checker-section">
+      <h3>Check a Link</h3>
+      <input type="text" id="linkInput" placeholder="Paste a link here">
+      <button onclick="checkLink()">Check Link</button>
+      <div id="linkResult"></div>
+    </div>
+
+    <!-- File Checker Section -->
+    <div class="checker-section">
+      <h3>Check a File</h3>
+      <input type="file" id="fileInput">
+      <button onclick="checkFile()">Check File</button>
+      <div id="fileResult"></div>
+    </div>
   </section>
 
-  <script src="script.js"></script>
+  <script>
+    // Function to check a link
+    function checkLink() {
+      const linkInput = document.getElementById('linkInput').value.trim();
+      const linkResult = document.getElementById('linkResult');
+
+      if (!linkInput) {
+        linkResult.textContent = 'Please enter a link.';
+        linkResult.style.color = 'red';
+        return;
+      }
+
+      // List of suspicious keywords
+      const suspiciousKeywords = [
+        'free-money', 'verify-account', 'win-prize', 'lottery', 'click-here',
+        'urgent', 'account-suspended', 'password-reset', 'congratulations'
+      ];
+
+      // Check if the link contains suspicious keywords
+      const isSuspicious = suspiciousKeywords.some(keyword => linkInput.includes(keyword));
+
+      if (isSuspicious) {
+        linkResult.textContent = '⚠️ Warning: This link looks suspicious!';
+        linkResult.style.color = 'red';
+      } else {
+        linkResult.textContent = '✅ This link looks safe.';
+        linkResult.style.color = 'green';
+      }
+    }
+
+    // Function to check a file
+    function checkFile() {
+      const fileInput = document.getElementById('fileInput').files[0];
+      const fileResult = document.getElementById('fileResult');
+
+      if (!fileInput) {
+        fileResult.textContent = 'Please select a file.';
+        fileResult.style.color = 'red';
+        return;
+      }
+
+      // List of risky file extensions
+      const riskyExtensions = ['.exe', '.js', '.scr', '.bat', '.cmd', '.vbs', '.jar'];
+
+      // Get the file extension
+      const fileName = fileInput.name;
+      const fileExtension = fileName.slice(fileName.lastIndexOf('.')).toLowerCase();
+
+      // Check if the file extension is risky
+      if (riskyExtensions.includes(fileExtension)) {
+        fileResult.textContent = '⚠️ Warning: This file type is risky!';
+        fileResult.style.color = 'red';
+      } else {
+        fileResult.textContent = '✅ This file looks safe.';
+        fileResult.style.color = 'green';
+      }
+    }
+  </script>
 </body>
 </html>
