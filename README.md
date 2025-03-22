@@ -1,79 +1,46 @@
-[PassWithEase] 🎯
+VeriSafe 🎯
 Basic Details
-Team Name: [Technovators]
+Team Name: InnovateX
 Team Members
-Member 1: Safna Sheri - [SOE CUSAT]
-Member 2: [Sona Elizabath ABRAHAM] - [SOE CUSAT]
-Member 3: Shilna p - [SOE CUSAT]
+Member 1: Sona Elizabeth Abraham
+Member 2: Shilna P
+Member 3: Thejalakshmi S.R
+Member 4: Siddharth K.P
 Hosted Project Link
-[https://github.com/Sea25/PassWithEase.git]
+[https://github.com/Sea25/VeriSafe.git]
 
 Project Description
-[one-stop platform for buying, selling, tutoring and exchanging books effortlessly! Connect with fellow students, save money, and find the resources you need in just a few clicks.]
+[Your all-in-one solution for campus safety. Featuring emergency alerts, live location sharing, emergency contacts, and spam detection. Stay safe, stay secure.]
 
 The Problem statement
-[expensive books, Wastage of books, Lack of a Centralized Platform, Limited Access to Resources]
+[Campus Security and Safety]
 
 The Solution
-[Online Book Exchange Platform, Direct Student Connection, Affordable Learning, Tutoring Feature, Simple Search & Listing]
+[SafeCampus simplifies safety measures by integrating these features into one platform, making it easier for users to stay secure and respond effectively to emergencies. It promotes peace of mind and a safer campus environment for everyone.
+
+*Key Solutions*:
+Emergency Alerts:
+
+Instantly notify campus security during emergencies, ensuring quick response times.
+
+Live Location Sharing:
+
+Share real-time location with trusted contacts, enabling faster assistance in critical situations.
+
+Emergency Contacts:
+
+Provide easy access to important emergency numbers and services, saving time during crises.
+
+Spam Checker:
+
+Detect and avoid suspicious links or files, protecting users from online threats.]
 
 Technical Details
 Technologies/Components Used
 For Software:
 
 [Languages used: HTML, CSS and JAVASCRIPT]
-[Frameworks used: Google Fonts(PlayFair Display)]
-[Libraries used: Google Fonts(PlayFair Display)]
-[Tools used: VS Code, Browser DevTools,Image Resources]
-For Hardware:
-
-[Web Server]
-[Laptops, PCs, ]
-[mobile devices]
-Implementation
-For Software:
-
-Installation
-[commands]
-
-Run
-[commands]
-
-Project Documentation
-For Software:
-
-Screenshots (Add at least 3)
-Screenshot1 This is a website called "passwithease" homepage.it is designed for buying and selling.The background is blue themed with navigation icons.
-
-Screenshot2 This is a web page for exchanging and selling books.In this page we can search books as well as add books details.
-
-Screenshot3 This is last page of this website.This contain informations of the builders of the website for queries and help.
-
-Diagrams
-![Workflow](Add your workflow/architecture diagram here) Add caption explaining your workflow
-
-For Hardware:
-
-Schematic & Circuit
-![Circuit](Add your circuit diagram here) Add caption explaining connections
-
-![Schematic](Add your schematic diagram here) Add caption explaining the schematic
-
-Build Photos
-Team
-
-![Components](Add photo of your components here) List out all components shown
-
-![Build](Add photos of build process here) Explain the build steps
-
-Final Explain the final build
-
-Project Demo
-Video
-[https://drive.google.com/file/d/1tdtewkIZIe9H38xWOdhrXUbWZK37Cyza/view?usp=drive_link] Explain what the video demonstrates
-
-Additional Demos
-[Add any extra demo materials/links]
-
-Team Contributions
-Made with ❤️ at TinkerHub
+[Frameworks used: React.js,Bootstrap ]
+[Libraries used: Axios,Leaflet.js]
+[Tools used: Git and GitHub,Visual Studio Code,Vercel,Canva]
+[For Hardware:Laptop,Smartphone,Cloud servers]
