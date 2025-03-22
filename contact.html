@@ -6,7 +6,7 @@
     <title>Contact Us</title>
     <style>
         nav {
-            background-color: #333;
+            background-color: #000000;
             overflow: hidden;
         }
         nav ul {
@@ -30,10 +30,27 @@
             text-align: center;
             margin-top: 50px;
         }
+        form input, form textarea, form button {
+            width: 80%;
+            max-width: 400px;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #000;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #575757;
+        }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
+    
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -45,7 +62,6 @@
         </ul>
     </nav>
 
-    <!-- Contact Us Page -->
     <div class="container">
         <h1>Contact Us</h1>
         <p>If you have any questions or need assistance, feel free to reach out to us.</p>
