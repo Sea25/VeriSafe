@@ -74,10 +74,12 @@
       border-radius: 10px;
       cursor: pointer;
       margin: 20px 0;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
     #emergencyBtn:hover {
       background-color: #cc0000;
+      transform: scale(1.05);
     }
 
     #customMessage {
@@ -92,6 +94,12 @@
       font-size: 1rem;
       border: 1px solid #ddd;
       border-radius: 5px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #customMessage textarea:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
     }
 
     #countdownTimer {
@@ -108,10 +116,12 @@
       border-radius: 5px;
       cursor: pointer;
       margin-top: 10px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
     #cancelBtn:hover {
       background-color: #333;
+      transform: scale(1.05);
     }
 
     #fakeCallBtn {
@@ -123,16 +133,19 @@
       border-radius: 10px;
       cursor: pointer;
       margin: 20px 0;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
     #fakeCallBtn:hover {
       background-color: #0056b3;
+      transform: scale(1.05);
     }
 
     #alertStatus {
       margin: 20px 0;
       font-size: 1.2rem;
       color: #333;
+      animation: fadeIn 1s ease-in-out;
     }
 
     /* Sent Alerts Section */
@@ -162,6 +175,107 @@
       border: 1px solid #ddd;
       border-radius: 5px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    #alertList li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Flash effect for emergency alert */
+    .flash {
+      animation: flashScreen 0.5s infinite;
+    }
+
+    @keyframes flashScreen {
+      0%, 100% { background-color: white; }
+      50% { background-color: red; }
+    }
+
+    /* Fake Call Screen */
+    #fakeCallScreen {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      color: white;
+      text-align: center;
+      padding-top: 50px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    #fakeCallScreen h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      animation: fadeInSlide 1s ease-in-out;
+    }
+
+    #fakeCallScreen p {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    #fakeCallScreen button {
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      margin: 0 10px;
+    }
+
+    #fakeCallScreen button:hover {
+      transform: scale(1.1);
+    }
+
+    #fakeCallScreen button:first-of-type {
+      background-color: green;
+      color: white;
+    }
+
+    #fakeCallScreen button:last-of-type {
+      background-color: red;
+      color: white;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInSlide {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      #fakeCallScreen h2 {
+        font-size: 2rem;
+      }
+
+      #fakeCallScreen p {
+        font-size: 1.2rem;
+      }
+
+      #fakeCallScreen button {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
     }
   </style>
 </head>
@@ -187,7 +301,6 @@
 
     <!-- Custom Message Input -->
     <div id="customMessage">
-      
       <textarea id="message" placeholder="e.g., I need help at the library"></textarea>
     </div>
 
@@ -213,6 +326,146 @@
   <!-- Alarm Sound -->
   <audio id="alarmSound" src="../assets/alarm.wav"></audio>
 
-  <script src="script.js"></script>
+  <!-- Fake Call Screen -->
+  <div id="fakeCallScreen">
+    <h2>Incoming Call</h2>
+    <p>Private Number</p>
+    <div style="margin-top: 30px;">
+      <!-- Accept Call Button -->
+      <button onclick="answerCall()" style="background-color: green; color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 24px; margin-right: 20px;">
+        📞
+      </button>
+      <!-- Decline Call Button -->
+      <button onclick="declineCall()" style="background-color: red; color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 24px;">
+        🚫
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // DOM Elements
+    const emergencyBtn = document.getElementById('emergencyBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const fakeCallBtn = document.getElementById('fakeCallBtn');
+    const timerDisplay = document.getElementById('timer');
+    const alertStatus = document.getElementById('alertStatus');
+    const messageInput = document.getElementById('message');
+    const alertList = document.getElementById('alertList');
+    const alarmSound = document.getElementById('alarmSound');
+    const fakeCallScreen = document.getElementById('fakeCallScreen');
+
+    // Variables
+    let countdown;
+    let timer = 10; // Countdown time in seconds
+    let ringtone; // Variable to store the ringtone audio
+
+    // Function to start the countdown
+    function startCountdown() {
+      console.log("Countdown started"); // Debugging log
+      // Disable the emergency button to prevent multiple clicks
+      emergencyBtn.disabled = true;
+
+      // Show countdown and cancel button
+      document.getElementById('countdownTimer').style.display = 'block';
+
+      // Start the countdown
+      countdown = setInterval(() => {
+        timer--;
+        timerDisplay.textContent = timer;
+
+        // If countdown reaches 0, trigger the alert
+        if (timer <= 0) {
+          clearInterval(countdown);
+          triggerAlert();
+        }
+      }, 1000); // Update every second
+    }
+
+    // Function to trigger the emergency alert
+    function triggerAlert() {
+      console.log("Alert triggered"); // Debugging log
+      // Play the alarm sound
+      alarmSound.play();
+
+      // Flash screen effect
+      document.body.classList.add('flash');
+      setTimeout(() => {
+        document.body.classList.remove('flash');
+      }, 5000); // Flash for 5 seconds
+
+      // Get the custom message (if any)
+      const message = messageInput.value.trim() || "Emergency alert triggered!";
+
+      // Display the alert status
+      alertStatus.textContent = `Alert sent: "${message}"`;
+      alertStatus.style.color = 'green';
+
+      // Add the alert to the sent alerts list
+      const alertItem = document.createElement('li');
+      const timestamp = new Date().toLocaleTimeString();
+      alertItem.textContent = `[${timestamp}] Alert sent${message ? `: "${message}"` : ''}`;
+      alertList.appendChild(alertItem);
+
+      // Reset the timer and hide countdown
+      resetCountdown();
+      document.getElementById('countdownTimer').style.display = 'none';
+    }
+
+    // Function to reset the countdown
+    function resetCountdown() {
+      console.log("Countdown reset"); // Debugging log
+      clearInterval(countdown);
+      timer = 10;
+      timerDisplay.textContent = timer;
+      emergencyBtn.disabled = false;
+    }
+
+    // Function to simulate a fake call
+    function simulateFakeCall() {
+      console.log("Fake call initiated"); // Debugging log
+      // Show the fake call screen
+      fakeCallScreen.style.display = 'block';
+
+      // Play the ringtone
+      ringtone = new Audio('../assets/original-phone-ringtone-36558.mp3'); // Add a ringtone file
+      ringtone.play();
+
+      // Automatically decline the call after 10 seconds
+      setTimeout(() => {
+        if (fakeCallScreen.style.display === 'block') {
+          declineCall();
+          alertStatus.textContent = "Call ended (automatically).";
+          alertStatus.style.color = 'blue';
+        }
+      }, 10000); // 10 seconds
+    }
+
+    // Function to answer the fake call
+    function answerCall() {
+      console.log("Fake call answered"); // Debugging log
+      alert("You answered the call.");
+      declineCall(); // Hide the call screen after answering
+      alertStatus.textContent = "Call ended (answered).";
+      alertStatus.style.color = 'blue';
+    }
+
+    // Function to decline the fake call
+    function declineCall() {
+      console.log("Fake call declined"); // Debugging log
+      // Hide the fake call screen
+      fakeCallScreen.style.display = 'none';
+
+      // Stop the ringtone
+      if (ringtone) {
+        ringtone.pause();
+        ringtone.currentTime = 0; // Reset the audio
+      }
+    }
+
+    // Event Listeners
+    emergencyBtn.addEventListener('click', startCountdown);
+    cancelBtn.addEventListener('click', resetCountdown);
+    fakeCallBtn.addEventListener('click', simulateFakeCall);
+  </script>
 </body>
 </html>

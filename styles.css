@@ -1,233 +1,251 @@
 /* Navigation Bar Styles */
 nav {
-    background-color: #333;
-    padding: 10px 0;
-  }
-  
-  nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  nav ul li {
-    display: inline;
-  }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    font-size: 16px;
-  }
-  
-  nav ul li a:hover {
-    background-color: #555;
-    border-radius: 5px;
-  }
-  
-  /* Emergency Alert Page Styles */
-  #emergencyAlert {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  #emergencyBtn {
-    background-color: #ff4444;
-    color: white;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin: 20px 0;
-  }
-  
-  #emergencyBtn:hover {
-    background-color: #cc0000;
-  }
-  
-  #customMessage {
-    margin: 20px 0;
-  }
-  
-  #customMessage textarea {
-    width: 80%;
-    max-width: 400px;
-    height: 100px;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  #countdownTimer {
-    margin: 20px 0;
-    font-size: 1.2rem;
-  }
-  
-  #cancelBtn {
-    background-color: #555;
-    color: white;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  #cancelBtn:hover {
-    background-color: #333;
-  }
-  
-  #fakeCallBtn {
-    background-color: #007bff;
-    color: white;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin: 20px 0;
-  }
-  
-  #fakeCallBtn:hover {
-    background-color: #0056b3;
-  }
-  
-  #alertStatus {
-    margin: 20px 0;
-    font-size: 1.2rem;
-    color: #333;
-  }
-  
-  /* Sent Alerts Section */
-  #sentAlerts {
-    margin: 20px auto;
-    max-width: 600px;
-    text-align: left;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  #sentAlerts h3 {
-    margin-top: 0;
-  }
-  
-  #alertList {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  #alertList li {
-    margin: 10px 0;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Flash Screen Effect */
-  .flash {
-    animation: flashScreen 1s infinite;
-  }
-  
-  @keyframes flashScreen {
-    0%, 100% { background-color: white; }
-    50% { background-color: red; }
-  }
-  /* Contact Cards Styles */
-.contacts-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .contact-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  
-  .contact-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  .contact-card h3 {
-    margin-top: 0;
-    color: #333;
-  }
-  
-  .contact-card p {
-    margin: 10px 0;
-    color: #555;
-  }
-  
-  .contact-card a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .contact-card a:hover {
-    text-decoration: underline;
-  }
-  .description-box {
-    animation: fadeIn 2s ease-in-out 1s; /* 1s delay */
+  background-color: #333;
+  padding: 10px 0;
 }
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+  border-radius: 5px;
+  color: #fff;
+}
+
+/* Emergency Alert Page Styles */
+#emergencyAlert {
+  text-align: center;
+  padding: 20px;
+}
+
+#emergencyBtn {
+  background-color: #ff4444;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 20px 0;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#emergencyBtn:hover {
+  background-color: #cc0000;
+  transform: scale(1.05);
+}
+
+#customMessage {
+  margin: 20px 0;
+}
+
+#customMessage textarea {
+  width: 80%;
+  max-width: 400px;
+  height: 100px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#customMessage textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+#countdownTimer {
+  margin: 20px 0;
+  font-size: 1.2rem;
+}
+
+#cancelBtn {
+  background-color: #555;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#cancelBtn:hover {
+  background-color: #333;
+  transform: scale(1.05);
+}
+
+#fakeCallBtn {
+  background-color: #007bff;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 20px 0;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#fakeCallBtn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+#alertStatus {
+  margin: 20px 0;
+  font-size: 1.2rem;
+  color: #333;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Sent Alerts Section */
+#sentAlerts {
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: left;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#sentAlerts h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+#alertList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#alertList li {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#alertList li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Flash Screen Effect */
+.flash {
+  animation: flashScreen 0.5s infinite;
+}
+
+@keyframes flashScreen {
+  0%, 100% { background-color: white; }
+  50% { background-color: red; }
+}
+
+/* Fake Call Screen */
+#fakeCallScreen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  color: white;
+  text-align: center;
+  padding-top: 50px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+#fakeCallScreen h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  animation: fadeInSlide 1s ease-in-out;
+}
+
+#fakeCallScreen p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+#fakeCallScreen button {
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  margin: 0 10px;
+}
+
+#fakeCallScreen button:hover {
+  transform: scale(1.1);
+}
+
+#fakeCallScreen button:first-of-type {
+  background-color: green;
+  color: white;
+}
+
+#fakeCallScreen button:last-of-type {
+  background-color: red;
+  color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInSlide {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
-
-h1 {
-    animation: fadeInSlide 2s ease-out, bounce 1s infinite 2s; /* Combine animations */
-}
-@keyframes typewriter {
-    from { width: 0; }
-    to { width: 100%; }
-}
-
-.description-box {
-    background: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 800px;
-    margin: 20px auto;
-    text-align: center;
-    animation: fadeIn 2s ease-in-out;
-    overflow: auto; /* Add scroll if content overflows */
-    max-height: 80vh; /* Limit height to 80% of the viewport */
-    scroll-behavior: smooth; /* Smooth scrolling */
-    padding-bottom: 30px; /* Add extra padding at the bottom */
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .description-box {
-        font-size: 0.9rem;
-        padding: 15px;
-    }
-}
-h2 {
-    font-family: 'Times New Roman', serif;
-    font-weight: bold;
-    text-align: center;
-    font-size: 3.5rem; /* Increased font size */
-    margin: 20px 0;
-    background: linear-gradient(135deg, #ff4444, #cc0000); /* Gradient color */
-    -webkit-background-clip: text; /* Clip background to text */
-    -webkit-text-fill-color: transparent; /* Make text transparent */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow */
+  #fakeCallScreen h2 {
+    font-size: 2rem;
+  }
+
+  #fakeCallScreen p {
+    font-size: 1.2rem;
+  }
+
+  #fakeCallScreen button {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
 }
